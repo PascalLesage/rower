@@ -64,13 +64,15 @@ def modify_database_from_stored_database(database_name, RoW_act_mapping):
     )
     return None
 
+
 def modify_database_from_loaded_database(database_name, loaded_database, RoW_act_mapping):
     """ Specify RoW locations in a loaded database and save database to disk"""
     for act, new_row in RoW_act_mapping.items():
         loaded_database[act]['location'] = new_row
     bw2data.Database(database_name).write(loaded_database)
 
-def write_RoW_info(RoW_dict, RoW_act_mapping, root_dirpath, overwrite=False, new_name=None):
+
+def write_RoW_info(RoW_dict, RoW_act_mapping, root_dirpath=None, overwrite=False, new_name=None):
     """ Function to store RoW data to disk.
 
     Will create a directory following the json Data Package schema.
@@ -90,6 +92,9 @@ def write_RoW_info(RoW_dict, RoW_act_mapping, root_dirpath, overwrite=False, new
     assert len(set(implicit_db_names))==1, "The dicts should be for a single database"
     implicit_db_name = implicit_db_names[0]
     name = new_name or implicit_db_name
+
+    if root_dirpath is None:
+        root_dirpath = os.path.join(os.path.abspath(os.path.dirname(__file__)), "data")
 
     if os.path.exists(root_dirpath):
         assert os.path.isdir(root_dirpath), "`root_dirpath` must be a directory"
