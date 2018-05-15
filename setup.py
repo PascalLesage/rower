@@ -4,12 +4,7 @@ setup(
     name='RoWer',
     version="0",
     packages=["RoWer"],
-    package_data={'constructive_geometries':
-        [
-            "data/faces.gpkg",
-            "data/faces.json"
-        ]
-    },
+    package_data={'RoWer': ["data/*.json"]},
     author="Pascal Lesage",
     author_email="pascal.lesage@polymtl.com",
     #license=""
