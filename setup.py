@@ -4,7 +4,7 @@ setup(
     name='RoWer',
     version="0",
     packages=["RoWer"],
-    package_data={'RoWer': ["data/*.json"]},
+    package_data={'RoWer': ["data/*/*.json"]},
     author="Pascal Lesage",
     author_email="pascal.lesage@polymtl.com",
     #license=""
