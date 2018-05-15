@@ -1,57 +1,103 @@
-import bw2data
-import sys
+from bw2data.backends.peewee import ActivityDataset as AD
+from collections import defaultdict
 from time import time
+import bw2data
 import json
 import os
 import shutil
+import sys
 
-def make_RoWs(database, modify_db_in_place=True, verbose=True):
-    """ Return "RoW definition" dict and "activities to new RoW" dict
 
-    The "RoW definition" dict identifies the geographies that are to be **excluded** from the RoW
-    The "RoW definition" dict has the structure {'RoW_0': ['geo1', 'geo2', ..., ], 'RoW_1': ['geo3', 'geo4', ..., ]}
+class Rower(object):
+    def __init__(self, database):
+        """Initiate ``Rower`` object to consistently label 'Rest-of-World' locations in LCI databases.
 
-    The "activities to new RoW" dict identifies which activities have which new RoW.
-    The "activities to new RoW" dict structure is {act0: 'RoW_0', act1: 'RoW_1', ...}
+        ``database`` must be a registered database."""
+        assert database in bw2data.databases, "Database {} not registered".format(database)
+        self.db = bw2data.Database(database)
 
-    With modify_db_in_place=True, replace all instances of unspecified "RoW" in
-    database with specific RoW from "RoW definition" dict.
-    """
-    assert database in bw2data.databases, "Database {} not registered".format(database)
-    t0 = time()
-    loaded_db = bw2data.Database(database).load()
-    acts_with_RoWs = [act for act, data in loaded_db.items() if data['location']=='RoW']
-    if len(acts_with_RoWs) == 0:
-        print("No datasets with RoW location found. Exiting.")
-        sys.exit()
-    if verbose:
-        print("{} activities with RoW location found in {:4} seconds, generating dictionaries".format(
-            len(acts_with_RoWs),
-            time()-t0
+    def define_RoWs(modify_db_in_place=True, verbose=True):
+        """Generate and return "RoW definition" dict and "activities to new RoW" dict.
+
+        "RoW definition" identifies the geographies that are to be **excluded** from the RoW.
+        It has the structure {'RoW_0': ['geo1', 'geo2', ..., ], 'RoW_1': ['geo3', 'geo4', ..., ]}.
+
+        The "activities to new RoW" dict identifies which activities have which each RoW.
+        It has the structure {'RoW_0': ['code of activity', 'code of another activity']}
+
+        If ``modify_db_in_place`` is ``True``, the activities in ``self.db``
+        will be labeled with the new RoW labels.
+
+        If ``verbose`` is ``True``, some status information is printed to the
+        console.
+
+        """
+        start = time()
+        loaded_db = bw2data.Database(database).load()
+        acts_with_RoWs = [act for act, data in loaded_db.items() if data['location']=='RoW']
+        if len(acts_with_RoWs) == 0:
+            print("No datasets with RoW location found. Exiting.")
+            sys.exit()
+        if verbose:
+            print("{} activities with RoW location found in {:4} seconds, generating dictionaries".format(
+                len(acts_with_RoWs),
+                time()-t0
+            )
+            )
+        t1 = time()
+
+        RoW_dict = {}         # RoW definitions
+        activity_mapping = {} # RoW to activities
+
+        for i, act in enumerate(acts_with_RoWs):
+            RoW_dict['RoW_' + str(i)] = [data['location'] for data in loaded_db.values()
+                                         if data['name'] == loaded_db[act]['name']
+                                         and data['reference product'] == loaded_db[act]['reference product']
+                                         and data['location'] != 'RoW'
+                                         ]
+            RoW_act_mapping[act] = 'RoW_' + str(i)
+        if verbose:
+            print("Generated {} RoW definitions in {:4} seconds".format(
+                len(RoW_dict),
+                time()-t1
+            )
+            )
+        if modify_db_in_place:
+            print("Modifying database {} in place".format(database))
+            modify_database_from_loaded_database(database, loaded_db, RoW_act_mapping)
+        return RoW_dict, RoW_act_mapping
+
+    def _define_RoWs_sqlite(self, modify, verose):
+        qs = list(AD.select(AD.name, AD.product, AD.location, AD.code).where(
+            AD.database == self.db.name).dicts())
+        base = defaultdict(list)
+        for obj in qs:
+            base[(obj['name'], obj['product'])].append((obj['location'], obj['code']))
+        grouped = defaultdict(set)
+        for obj in base.values():
+            if not any(x[0] == 'RoW' for x in obj):
+                continue
+            grouped[sorted([x[0] for x in obj])].update({x[1] for x in obj})
+        RoWs = {"RoW_{}".format(i): key for i, key in enumerate(sorted(grouped))}
+
+        grouped = {: [x[1] for x in lst] for lst in base.values()}
+        RoWs = sorted(
+            [v for v in grouped.values() if any(x[0] == 'RoW' for x in v)],
+            key=lambda obj: sorted([x[0] for x in obj])
         )
-        )
-    t1 = time()
 
-    RoW_dict = {}  # RoW definition dict
-    RoW_act_mapping = {} # activities to new RoW dict
 
-    for i, act in enumerate(acts_with_RoWs):
-        RoW_dict['RoW_' + str(i)] = [data['location'] for data in loaded_db.values()
-                                     if data['name'] == loaded_db[act]['name']
-                                     and data['reference product'] == loaded_db[act]['reference product']
-                                     and data['location'] != 'RoW'
-                                     ]
-        RoW_act_mapping[act] = 'RoW_' + str(i)
-    if verbose:
-        print("Generated {} RoW definitions in {:4} seconds".format(
-            len(RoW_dict),
-            time()-t1
-        )
-        )
-    if modify_db_in_place:
-        print("Modifying database {} in place".format(database))
-        modify_database_from_loaded_database(database, loaded_db, RoW_act_mapping)
-    return RoW_dict, RoW_act_mapping
+        grouper = lambda x: (x['name'], x['product'])
+        for group in groupby(grouper, qs):
+            break
+
+    data = PickleField()             # Canonical, except for other C fields
+    code = TextField()               # Canonical
+    database = TextField()           # Canonical
+    location = TextField(null=True)  # Reset from `data`
+    name = TextField(null=True)      # Reset from `data`
+    product = TextField(null=True)   # Reset from `data`
+    type = TextField(null=True)      # Reset from `data`
 
 
 def modify_database_from_stored_database(database_name, RoW_act_mapping):
