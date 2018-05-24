@@ -13,7 +13,7 @@ DATAPATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), "data")
 
 class RowerDatapackage(object):
     def __init__(self, dirpath):
-        if not os.path.isdir(dirpath) or not os.access(root_dirpath, os.W_OK):
+        if not os.path.isdir(dirpath) or not os.access(dirpath, os.W_OK):
             raise ValueError("``dirpath`` must be a writable directory")
         if not os.path.exists(dirpath):
             os.mkdir(dirpath)
@@ -25,7 +25,7 @@ class RowerDatapackage(object):
 
     @property
     def empty(self):
-        return not any(lambda x: x.endswith(".json"), os.listdir(self.path))
+        return not any(x.endswith(".json") for x in os.listdir(self.path))
 
     def write_data(self, name, definitions=None, activity_mapping=None):
         assert definitions.json or activity_mapping, \
@@ -40,10 +40,13 @@ class RowerDatapackage(object):
 
     def read_data(self):
         data = {}
-        if "definitions.json" in os.listdir(self.path):
-            data['definitions'] = self._read_json(os.path.join(self.path, "definitions.json"))
-        if "activity_mapping.json" in os.listdir(self.path):
-            data['activity_mapping'] = self._read_json(os.path.join(self.path, "activity_mapping.json"))
+        for resource in self.metadata["resources"]:
+            assert (bw2data.filesystem.md5hash(
+                os.path.join(self.path, resource["path"])
+            ) == resource["hash"]), "Data integrity failure"
+            data[resource["name"]] = self._read_json(
+                os.path.join(self.path, resource["path"])
+            )
         return data
 
     def _save_json(self, data, filename):
@@ -118,7 +121,7 @@ class Rower(object):
         """
         assert database in bw2data.databases, "Database {} not registered".format(database)
         self.db = bw2data.Database(database)
-        self.master_data = self._load_master_data()
+        self.existing = {}
 
     def define_RoWs(self, prefix="RoW_user"):
         """Generate and return "RoW definition" dict and "activities to new RoW" dict.
@@ -140,9 +143,10 @@ class Rower(object):
 
         self.user_rows = {}
         self.labelled = {}
-        for k, v in data.items():
-            if k in self.master_data:
-                self.labelled[self.master_data[k]] = v
+        for k in sorted(data):
+            v = data[k]
+            if k in self.existing:
+                self.labelled[self.existing[k]] = v
             else:
                 key = "{}_{}".format(prefix, next(counter))
                 self.labelled[key] = v
@@ -179,14 +183,18 @@ class Rower(object):
         return data
 
     def _reformat_rows(self, data):
-        """Transform ``data`` from ``{(name, product): [(location, code)]`` to ``{tuple(sorted([location])): [code]}``."""
-        return {tuple(sorted([x[0] for x in lst])): [x[1] for x in lst]
-                for lst in data.values()}
+        """Transform ``data`` from ``{(name, product): [(location, code)]`` to ``{tuple(sorted([location])): [RoW code]}``.
+
+        ``RoW`` must be one of the locations (and is deleted)."""
+        return {tuple(sorted([x[0] for x in lst if x[0] != "RoW"])):
+                [x[1] for x in lst if x[0] == 'RoW']
+                for lst in data.values()
+                if 'RoW' in [x[0] for x in lst]}
 
     def _update_locations_sqlite(self, mapping):
         count = 0
         for k, v in mapping.items():
-            count += AD.update({AD.location = v}).where(
+            count += AD.update({AD.location: v}).where(
                 AD.code == k, AD.database == self.db.name
             ).execute()
         return count
@@ -201,9 +209,3 @@ class Rower(object):
         if count:
             self.db.write(data)
         return count
-
-    def _load_master_data(self):
-        dp = RowerDatapackage(DATAPATH)
-        if dp.empty:
-            dp.write_data({})
-        return dp.read_data()[0]
