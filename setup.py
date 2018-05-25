@@ -1,10 +1,10 @@
 from setuptools import setup
 
 setup(
-    name='RoWer',
+    name='rower',
     version="0",
-    packages=["RoWer"],
-    package_data={'RoWer': ["data/*/*.json"]},
+    packages=["rower"],
+    package_data={'rower': ["data/*/*.json"]},
     author="Pascal Lesage",
     author_email="pascal.lesage@polymtl.com",
     #license=""
