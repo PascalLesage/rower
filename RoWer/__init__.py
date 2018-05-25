@@ -1,6 +1,7 @@
 from bw2data.backends.peewee import ActivityDataset as AD
 from collections import defaultdict
 from itertools import count
+import appdirs
 import bw2data
 import datetime
 import json
@@ -9,6 +10,10 @@ import sys
 
 
 DATAPATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), "data")
+USERPATH = os.path.abspath(appdirs.user_data_dir("rower", "pylca"))
+
+if not os.path.isdir(USERPATH):
+    os.makedirs(USERPATH)
 
 
 class RowerDatapackage(object):
@@ -125,6 +130,16 @@ class Rower(object):
         self.db = bw2data.Database(database)
         self.existing = {}
 
+    def load_existing(self, dirname):
+        pass
+
+    def apply_existing_activity_map(self, dirname):
+        dct = self._get_saved(dirname)
+        if 'Activity mapping' not in dct:
+            raise ValueError("No activity mapping found")
+        self.labelled = dct['Activity mapping']
+        self.label_RoWs()
+
     def define_RoWs(self, prefix="RoW_user"):
         """Generate and return "RoW definition" dict and "activities to new RoW" dict.
 
@@ -157,7 +172,7 @@ class Rower(object):
         return self.labelled, self.user_rows
 
     def label_RoWs(self):
-        """Update the ``location`` labels in the given database with the generated RoWs.
+        """Update the ``location`` labels in the given database with the generated RoWs stored in ``self.labelled``.
 
         Returns the number of locations changed."""
         assert hasattr(self, "labelled") and hasattr(self, "user_rows"), "Must run ``define_RoWs`` first"
@@ -185,7 +200,7 @@ class Rower(object):
         return data
 
     def _reformat_rows(self, data):
-        """Transform ``data`` from ``{(name, product): [(location, code)]`` to ``{tuple(sorted([location])): [RoW activity code]}``.
+        """Transform ``data`` from ``{(name, product): [(location, code)]}`` to ``{tuple(sorted([location])): [RoW activity code]}``.
 
         ``RoW`` must be one of the locations (and is deleted)."""
         return {tuple(sorted([x[0] for x in lst if x[0] != "RoW"])):
@@ -211,3 +226,10 @@ class Rower(object):
         if count:
             self.db.write(data)
         return count
+
+    def _get_saved(self, dirname):
+        if os.path.isdir(os.path.join(DATAPATH, dirname)):
+            return RowerDatapackage(os.path.join(DATAPATH, dirname)).read_data()
+        elif os.path.isdir(os.path.join(USERPATH, dirname)):
+            return RowerDatapackage(os.path.join(USERPATH, dirname)).read_data()
+        raise OSError("Can't find specified directory")

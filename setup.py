@@ -9,7 +9,7 @@ setup(
     author_email="pascal.lesage@polymtl.com",
     #license=""
     url="https://github.com/PascalLesage/RoWer",
-    install_requires=['bw2data'],
+    install_requires=['bw2data', 'appdirs'],
     # long_description=open('README.rst').read(),
     classifiers=[
         'Development Status :: 3 - Alpha',
