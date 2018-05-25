@@ -2,9 +2,9 @@ from bw2data.backends.peewee import ActivityDataset as AD
 from collections import defaultdict
 from itertools import count
 import bw2data
+import datetime
 import json
 import os
-import shutil
 import sys
 
 
@@ -13,10 +13,10 @@ DATAPATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), "data")
 
 class RowerDatapackage(object):
     def __init__(self, dirpath):
-        if not os.path.isdir(dirpath) or not os.access(dirpath, os.W_OK):
-            raise ValueError("``dirpath`` must be a writable directory")
         if not os.path.exists(dirpath):
             os.mkdir(dirpath)
+        elif not os.path.isdir(dirpath) or not os.access(dirpath, os.W_OK):
+            raise ValueError("``dirpath`` must be a writable directory")
         self.path = dirpath
         if "datapackage.json" in os.listdir(self.path):
             self.metadata = self._read_json(os.path.join(self.path, "datapackage.json"))
@@ -28,10 +28,12 @@ class RowerDatapackage(object):
         return not any(x.endswith(".json") for x in os.listdir(self.path))
 
     def write_data(self, name, definitions=None, activity_mapping=None):
-        assert definitions.json or activity_mapping, \
+        assert definitions or activity_mapping, \
             "Must provide either ``definitions`` or ``activity_mapping``"
         if not self.empty:
-            shutil.rmtree(self.path)
+            for root, dirs, files in os.walk(self.path):
+                for filename in files:
+                    os.unlink(os.path.join(self.path, filename))
         if definitions:
             self._save_json(definitions, os.path.join(self.path, "definitions.json"))
         if activity_mapping:
@@ -41,7 +43,7 @@ class RowerDatapackage(object):
     def read_data(self):
         data = {}
         for resource in self.metadata["resources"]:
-            assert (bw2data.filesystem.md5hash(
+            assert (bw2data.filesystem.md5(
                 os.path.join(self.path, resource["path"])
             ) == resource["hash"]), "Data integrity failure"
             data[resource["name"]] = self._read_json(
@@ -88,7 +90,7 @@ class RowerDatapackage(object):
                 "path": "definitions.json",
                 "description": "Dictionary mapping specific Rest-of-Worlds labels to list of excluded locations",
                 "format": "json",
-                "hash": bw2data.filesystem.md5hash(
+                "hash": bw2data.filesystem.md5(
                     os.path.join(self.path, "definitions.json")
                 )
             })
@@ -98,7 +100,7 @@ class RowerDatapackage(object):
                 "path": "activity_mapping.json",
                 "description": "Mapping from activity code to Rest-of-World label",
                 "format": "json",
-                "hash": bw2data.filesystem.md5hash(
+                "hash": bw2data.filesystem.md5(
                     os.path.join(self.path, "activity_mapping.json")
                 )
             })
@@ -183,7 +185,7 @@ class Rower(object):
         return data
 
     def _reformat_rows(self, data):
-        """Transform ``data`` from ``{(name, product): [(location, code)]`` to ``{tuple(sorted([location])): [RoW code]}``.
+        """Transform ``data`` from ``{(name, product): [(location, code)]`` to ``{tuple(sorted([location])): [RoW activity code]}``.
 
         ``RoW`` must be one of the locations (and is deleted)."""
         return {tuple(sorted([x[0] for x in lst if x[0] != "RoW"])):
