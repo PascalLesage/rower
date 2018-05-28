@@ -12,3 +12,11 @@ Defining your own RoWs
 ----------------------
 
 
+Potential gotchas
+-----------------
+
+* You can have more than one RoW activity per combination of name and reference product - they will both get relabeled to the same new RoW.
+* The same RoW label will be used for each unique RoW definition, so one RoW label can be applied to many activities.
+* RoW will be defined and relabeled, even if no regions are excluded.
+* Data package folder names are chosen be users, so may not match the database, even if they say they do.
+* ``Rower.save_data_package`` will delete an existing data package completely; it will not do a partial update.

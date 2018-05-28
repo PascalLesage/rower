@@ -40,9 +40,9 @@ class RowerDatapackage(object):
                 for filename in files:
                     os.unlink(os.path.join(self.path, filename))
         if definitions:
-            self._save_json(definitions, os.path.join(self.path, "definitions.json"))
+            self._save_json(definitions, "definitions.json")
         if activity_mapping:
-            self._save_json(activity_mapping, os.path.join(self.path, "activity_mapping.json"))
+            self._save_json(activity_mapping, "activity_mapping.json")
         self._write_datapackage(name)
 
     def read_data(self):
@@ -142,11 +142,22 @@ class Rower(object):
         self.labelled = {}
 
     def list_existing(self):
-        pass
+        """List existing RoW definition data packages"""
+        return [os.path.join(DATAPATH, o) for o in os.listdir(DATAPATH)
+                if os.path.isdir(os.path.join(DATAPATH,o))] + \
+               [os.path.join(USERPATH, o) for o in os.listdir(USERPATH)
+                if os.path.isdir(os.path.join(DATAPATH,o))]
 
     def load_existing(self, dirname):
-        """Load a data package and populate ``self.existing`` and/or ``self.labelled``."""
-        pass
+        """Load a data package and populate ``self.existing`` and/or ``self.labelled``.
+
+        Returns *all* the data package resources."""
+        data = RowerDatapackage(dirname).read_data()
+        if "Activity mapping" in data:
+            self.labelled = data["Activity mapping"]
+        if "Rest-of-World definitions" in data:
+            self.existing = data["Rest-of-World definitions"]
+        return data
 
     def apply_existing_activity_map(self, dirname):
         self.load_existing(dirname)
@@ -157,6 +168,19 @@ class Rower(object):
         if 'Activity mapping' not in dct:
             raise ValueError("No activity mapping found")
         self.labelled = dct['Activity mapping']
+
+    def save_data_package(self, dirname, name, overwrite=False):
+        """Save definitions and activity mapping to a data package. Returns path of created directory.
+
+        ``name`` is the data package name (stored in metadata).
+
+        ``overwrite`` controls whether existing packages will be replaced."""
+        dirpath = os.path.abspath(os.path.join(USERPATH, dirname))
+        if os.path.exists(dirpath) and not overwrite:
+            raise OSError("Directory already exists")
+        dp = RowerDatapackage(dirpath)
+        dp.write_data(name, self.user_rows, self.labelled)
+        return dirpath
 
     def define_RoWs(self, prefix="RoW_user"):
         """Generate and return "RoW definition" dict and "activities to new RoW" dict.
@@ -177,9 +201,12 @@ class Rower(object):
 
         counter = count()
         data = self._reformat_rows(data)
-
         self.user_rows = {}
         self.labelled = {}
+
+        if not data:
+            return self.labelled, self.user_rows
+
         for k in sorted(data):
             v = data[k]
             if k in self.existing:
@@ -223,17 +250,21 @@ class Rower(object):
         """Transform ``data`` from ``{(name, product): [(location, code)]}`` to ``{tuple(sorted([location])): [RoW activity code]}``.
 
         ``RoW`` must be one of the locations (and is deleted)."""
-        return {tuple(sorted([x[0] for x in lst if x[0] != "RoW"])):
-                [x[1] for x in lst if x[0] == 'RoW']
-                for lst in data.values()
-                if 'RoW' in [x[0] for x in lst]}
+        result = defaultdict(list)
+        for lst in data.values():
+            if 'RoW' not in [x[0] for x in lst]:
+                continue
+            result[tuple(sorted([x[0] for x in lst if x[0] != "RoW"]))
+                 ].extend([x[1] for x in lst if x[0] == 'RoW'])
+        return result
 
     def _update_locations_sqlite(self, mapping):
         count = 0
         for k, v in mapping.items():
-            count += AD.update({AD.location: v}).where(
-                AD.code == k, AD.database == self.db.name
-            ).execute()
+            activity = bw2data.get_activity((self.db.name, k))
+            activity['location'] = v
+            activity.save()
+            count += 1
         return count
 
     def _update_locations_other(self, mapping):

@@ -1,4 +1,5 @@
-from RoWer import make_RoWs, write_RoW_info
+from rower import Rower, RowerDatapackage
+import rower
 from bw2data import Database, projects, get_activity
 from bw2data.tests import bw2test
 import os
@@ -7,9 +8,14 @@ import json
 
 
 @pytest.fixture
+def redirect_userdata(monkeypatch, tmpdir):
+    monkeypatch.setattr(rower, 'USERPATH', tmpdir)
+
+
+@pytest.fixture
 @bw2test
-def animals_db():
-    #Setup
+def basic():
+    assert not len(Database('animals'))
     animal_data = {
         ('animals', 'food'): {
             'name': 'food',
@@ -22,6 +28,7 @@ def animals_db():
             ],
             'unit': 'kilogram',
             'location': 'GLO',
+            'reference product': 'food',
         },
         ('animals', 'german_shepherd'): {
             'name': 'dogs',
@@ -191,32 +198,27 @@ def animals_db():
     db.write(animal_data)
     return db
 
-# def test_RoW_db_has_same_structure(animals_db):
-#     original_length = len(animals_db)
-#     original_loaded_db = db.load()
 
-#     _, _ = make_RoWs('animals', modify_db_in_place=True)
+def test_existing_ecoinvent_present(basic):
+    assert len(Rower("animals").list_existing()) == 7
 
-#     # Modification of database hasn't changed its size
-#     assert len(db) == original_length
+def test_locations_changed_as_expected(basic):
+    rower = Rower("animals")
+    rower.define_RoWs()
+    rower.label_RoWs()
+    assert get_activity(('animals', 'mutt pup'))['location'] == 'RoW_user_0'
+    assert get_activity(('animals', 'mutt'))['location'] == 'RoW_user_0'
+    assert get_activity(('animals', 'moggy'))['location'] == 'RoW_user_1'
 
-#     loaded_db = db.load()
-#     # The keys of the datasets have not changed
-#     assert set([*original_loaded_db]) == set([*loaded_db])
+def test_userdata_redirect(basic, redirect_userdata):
+    rower = Rower("animals")
+    rower.define_RoWs()
+    rower.label_RoWs()
+    dp = rower.save_data_package("foo", "bar")
+    print(dp)
+    assert "rower" not in dp
+    assert "pytest" in dp
 
-# def test_locations_changed_as_expected(animals_db):
-#     original_db = Database('animals').load()
-#     _, _ = make_RoWs('animals', modify_db_in_place=True)
-#     new_db = Database('animals').load()
-
-#     for act in original_db.keys():
-#             # Check all the locations that were initially RoWs
-#         if original_db[act]['location'] == 'RoW':
-#             assert new_db[act]['location'][0:3] == 'RoW'
-#             assert new_db[act]['location'][3] == '_'
-#             int(new_db[act]['location'][4:]) # Will fail if not integer
-#         else:
-#             assert new_db[act]['location'] == original_db[act]['location']
 
 # def test_RoW_dict(animals_db):
 #     RoW_dict, RoW_act_mapping = make_RoWs('animals', modify_db_in_place=True)
