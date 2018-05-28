@@ -125,20 +125,38 @@ class Rower(object):
         * Save user RoW definitions for reuse in a standard format (``write_datapackage``).
         * Import a ``geocollection`` and ``topocollection`` into bw2regional (bw2regional must be installed) (Not implemented).
 
+        This class uses the following internal parameters:
+
+        * ``self.db``: ``bw2data.Database`` instance
+        * ``self.existing``: ``{"RoW label": ["list of excluded locations"]}``
+        * ``self.user_rows``: ``{"RoW label": ["list of excluded locations"]}``
+        * ``self.labelled``: ``{"RoW label": ["list of activity codes"]}``
+
+        ``self.existing`` should be loaded (using ``self.load_existing``) from a previous saved result, while ``self.user_rows`` are new RoWs not found in ``self.existing``. When saving to a data package, only ``self.user_rows`` and ``self.labelled`` are saved.
+
         """
         assert database in bw2data.databases, "Database {} not registered".format(database)
         self.db = bw2data.Database(database)
         self.existing = {}
+        self.user_rows = {}
+        self.labelled = {}
+
+    def list_existing(self):
+        pass
 
     def load_existing(self, dirname):
+        """Load a data package and populate ``self.existing`` and/or ``self.labelled``."""
         pass
 
     def apply_existing_activity_map(self, dirname):
+        self.load_existing(dirname)
+        assert self.labelled, "No activity mapping found"
+        self.label_RoWs()
+
         dct = self._get_saved(dirname)
         if 'Activity mapping' not in dct:
             raise ValueError("No activity mapping found")
         self.labelled = dct['Activity mapping']
-        self.label_RoWs()
 
     def define_RoWs(self, prefix="RoW_user"):
         """Generate and return "RoW definition" dict and "activities to new RoW" dict.
@@ -148,6 +166,8 @@ class Rower(object):
 
         The "activities to new RoW" dict identifies which activities have which each RoW.
         It has the structure {'RoW_0': ['code of activity', 'code of another activity']}
+
+        Resets ``self.user_rows`` and ``self.labelled``.
 
         """
         if self.db.backend == 'sqlite':
