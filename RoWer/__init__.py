@@ -11,6 +11,14 @@ import sys
 
 DATAPATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), "data")
 USERPATH = os.path.abspath(appdirs.user_data_dir("rower", "pylca"))
+DEFAULT_EXCLUSIONS = [
+    "AQ",                          # Antarctica
+    "Ashmore and Cartier Islands", # Uninhabited
+    "Bajo Nuevo",                  # Uninhabited
+    "Clipperton Island",           # Uninhabited
+    "Coral Sea Islands",           # Only a weather station
+]
+
 
 if not os.path.isdir(USERPATH):
     os.makedirs(USERPATH)
@@ -82,7 +90,7 @@ class RowerDatapackage(object):
         if not self.metadata:
             self.metadata = self._create_metadata(name)
         else:
-            self.metadata = str(int(self.metadata["version"]) + 1)
+            self.metadata["version"] = str(int(self.metadata["version"]) + 1)
             self.metadata["created"] = datetime.datetime.utcnow().isoformat()
         self._update_metadata_resources()
         self._save_json(self.metadata, os.path.join(self.path, "datapackage.json"))
@@ -182,7 +190,7 @@ class Rower(object):
         dp.write_data(name, self.user_rows, self.labelled)
         return dirpath
 
-    def define_RoWs(self, prefix="RoW_user"):
+    def define_RoWs(self, prefix="RoW_user", default_exclusions=True):
         """Generate and return "RoW definition" dict and "activities to new RoW" dict.
 
         "RoW definition" identifies the geographies that are to be **excluded** from the RoW.
@@ -200,7 +208,7 @@ class Rower(object):
             data = self._load_groups_other_backend()
 
         counter = count()
-        data = self._reformat_rows(data)
+        data = self._reformat_rows(data, default_exclusions=default_exclusions)
         self.user_rows = {}
         self.labelled = {}
 
@@ -246,15 +254,18 @@ class Rower(object):
             data[(obj['name'], obj['product'])].append((obj['location'], obj['code']))
         return data
 
-    def _reformat_rows(self, data):
+    def _reformat_rows(self, data, default_exclusions=True):
         """Transform ``data`` from ``{(name, product): [(location, code)]}`` to ``{tuple(sorted([location])): [RoW activity code]}``.
 
-        ``RoW`` must be one of the locations (and is deleted)."""
+        ``RoW`` must be one of the locations (and is deleted).
+
+        Adds default exclusions if ``default_exclusions``."""
         result = defaultdict(list)
         for lst in data.values():
             if 'RoW' not in [x[0] for x in lst]:
                 continue
-            result[tuple(sorted([x[0] for x in lst if x[0] != "RoW"]))
+            result[tuple(sorted([x[0] for x in lst if x[0] != "RoW"] +
+                                DEFAULT_EXCLUSIONS if default_exclusions else []))
                  ].extend([x[1] for x in lst if x[0] == 'RoW'])
         return result
 

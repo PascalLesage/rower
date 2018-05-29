@@ -10,14 +10,14 @@
       "title": "Open Data Commons Public Domain Dedication and Licence 1.0"
     }
   ],
-  "created": "2018-05-25T09:39:58.769500",
+  "created": "2018-05-29T10:40:50.002693",
   "resources": [
     {
       "name": "Rest-of-World definitions",
       "path": "definitions.json",
       "description": "Dictionary mapping specific Rest-of-Worlds labels to list of excluded locations",
       "format": "json",
-      "hash": "8bd5f7105c240e99124324c30dbe718a"
+      "hash": "406492273103139d2f7b4c38d89af8e9"
     }
   ]
 }

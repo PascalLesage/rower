@@ -1,14 +1,15 @@
 {
-  "RoW_0": [],
-  "RoW_1": [
+  "RoW_0": [
     "AE",
     "AL",
     "AM",
     "AO",
+    "AQ",
     "AR",
     "AT",
     "AU",
     "AZ",
+    "Ashmore and Cartier Islands",
     "BA",
     "BD",
     "BE",
@@ -20,6 +21,7 @@
     "BR",
     "BW",
     "BY",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -47,6 +49,8 @@
     "CW",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "DO",
@@ -170,13 +174,18 @@
     "ZM",
     "ZW"
   ],
-  "RoW_2": [
+  "RoW_1": [
+    "AQ",
     "AR",
     "AU",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
     "CA",
     "CH",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -194,13 +203,18 @@
     "UA",
     "US"
   ],
-  "RoW_3": [
+  "RoW_2": [
+    "AQ",
     "AR",
     "AU",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
     "CA",
     "CH",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -217,23 +231,33 @@
     "UA",
     "US"
   ],
-  "RoW_4": [
+  "RoW_3": [
+    "AQ",
     "AR",
     "AU",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "PE",
     "TH",
     "UA"
   ],
-  "RoW_5": [
+  "RoW_4": [
+    "AQ",
     "AR",
+    "Ashmore and Cartier Islands",
     "BE",
     "BR",
+    "Bajo Nuevo",
     "CI",
     "CL",
     "CN",
     "CO",
     "CR",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "EC",
     "ES",
     "FR",
@@ -254,15 +278,51 @@
     "VN",
     "ZA"
   ],
-  "RoW_6": [
+  "RoW_5": [
+    "AQ",
     "AR",
+    "Ashmore and Cartier Islands",
     "BE",
     "BR",
+    "Bajo Nuevo",
     "CI",
     "CL",
     "CN",
     "CO",
     "CR",
+    "Clipperton Island",
+    "Coral Sea Islands",
+    "EC",
+    "ES",
+    "FR",
+    "HN",
+    "ID",
+    "IT",
+    "KE",
+    "LK",
+    "MG",
+    "MX",
+    "MY",
+    "PE",
+    "PH",
+    "TR",
+    "US",
+    "VN",
+    "ZA"
+  ],
+  "RoW_6": [
+    "AQ",
+    "AR",
+    "Ashmore and Cartier Islands",
+    "BE",
+    "BR",
+    "Bajo Nuevo",
+    "CI",
+    "CL",
+    "CO",
+    "CR",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "EC",
     "ES",
     "FR",
@@ -282,47 +342,36 @@
     "ZA"
   ],
   "RoW_7": [
+    "AQ",
     "AR",
+    "Ashmore and Cartier Islands",
     "BE",
-    "BR",
-    "CI",
-    "CL",
-    "CO",
-    "CR",
-    "EC",
-    "ES",
-    "FR",
-    "HN",
-    "ID",
-    "IT",
-    "KE",
-    "LK",
-    "MG",
-    "MX",
-    "MY",
-    "PE",
-    "PH",
-    "TR",
-    "US",
-    "VN",
-    "ZA"
+    "Bajo Nuevo",
+    "CN",
+    "Clipperton Island",
+    "Coral Sea Islands"
   ],
   "RoW_8": [
+    "AQ",
     "AR",
-    "BE",
-    "CN"
-  ],
-  "RoW_9": [
-    "AR",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
     "CA-QC",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "US"
   ],
-  "RoW_10": [
+  "RoW_9": [
+    "AQ",
     "AR",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
     "CI",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "EC",
     "GH",
     "HN",
@@ -333,23 +382,36 @@
     "PH",
     "VN"
   ],
-  "RoW_11": [
+  "RoW_10": [
+    "AQ",
     "AR",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "US"
   ],
-  "RoW_12": [
+  "RoW_11": [
+    "AQ",
     "AR",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN"
   ],
-  "RoW_15": [
+  "RoW_14": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BA",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -397,6 +459,8 @@
     "CN-ZJ",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -453,13 +517,16 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_16": [
+  "RoW_15": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BA",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -471,6 +538,8 @@
     "CA-QC",
     "CA-SK",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -514,13 +583,16 @@
     "US-TRE",
     "US-WECC"
   ],
-  "RoW_18": [
+  "RoW_17": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BA",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-NB",
     "CA-NS",
@@ -558,6 +630,8 @@
     "CN-YN",
     "CN-ZJ",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "EE",
     "ES",
@@ -584,12 +658,15 @@
     "TW",
     "UA"
   ],
-  "RoW_19": [
+  "RoW_18": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BA",
     "BE",
     "BG",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -635,6 +712,8 @@
     "CN-YN",
     "CN-ZJ",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -698,12 +777,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_22": [
+  "RoW_21": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BA",
     "BE",
     "BG",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -727,6 +809,8 @@
     "CN-SX",
     "CN-ZJ",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR",
@@ -768,12 +852,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_24": [
+  "RoW_23": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -820,6 +907,8 @@
     "CN-ZJ",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -863,12 +952,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_26": [
+  "RoW_25": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -915,6 +1007,8 @@
     "CN-ZJ",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -967,12 +1061,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_27": [
+  "RoW_26": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -1016,6 +1113,8 @@
     "CN-YN",
     "CN-ZJ",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -1069,12 +1168,15 @@
     "US-TRE",
     "US-WECC"
   ],
-  "RoW_29": [
+  "RoW_28": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -1120,6 +1222,8 @@
     "CN-ZJ",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "ES",
@@ -1185,12 +1289,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_30": [
+  "RoW_29": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -1234,6 +1341,8 @@
     "CN-ZJ",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -1292,12 +1401,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_31": [
+  "RoW_30": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-NS",
@@ -1310,6 +1422,8 @@
     "CN-SH",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -1349,12 +1463,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_32": [
+  "RoW_31": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-MB",
     "CA-NB",
@@ -1398,6 +1515,8 @@
     "CN-ZJ",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -1442,12 +1561,15 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_34": [
+  "RoW_33": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-NB",
     "CA-NS",
@@ -1458,6 +1580,8 @@
     "CL",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -1501,12 +1625,15 @@
     "US-TRE",
     "US-WECC"
   ],
-  "RoW_35": [
+  "RoW_34": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-NB",
     "CA-NS",
@@ -1546,6 +1673,8 @@
     "CN-YN",
     "CN-ZJ",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "EE",
     "ES",
@@ -1597,13 +1726,18 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_37": [
+  "RoW_36": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -1643,12 +1777,17 @@
     "US-TRE",
     "US-WECC"
   ],
-  "RoW_39": [
+  "RoW_38": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "ES",
@@ -1683,11 +1822,14 @@
     "US-TRE",
     "US-WECC"
   ],
-  "RoW_41": [
+  "RoW_40": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -1734,6 +1876,8 @@
     "CN-ZJ",
     "CY",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "ES",
@@ -1777,11 +1921,14 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_47": [
+  "RoW_46": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
     "BR",
+    "Bajo Nuevo",
     "CN-AH",
     "CN-BJ",
     "CN-CQ",
@@ -1814,6 +1961,8 @@
     "CN-YN",
     "CN-ZJ",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "EE",
     "ES",
@@ -1835,10 +1984,13 @@
     "TW",
     "UA"
   ],
-  "RoW_48": [
+  "RoW_47": [
+    "AQ",
     "AT",
     "AU",
+    "Ashmore and Cartier Islands",
     "BE",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-MB",
@@ -1874,6 +2026,8 @@
     "CN-XJ",
     "CN-XZ",
     "CN-YN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR",
@@ -1892,18 +2046,23 @@
     "US-SERC",
     "US-WECC"
   ],
-  "RoW_50": [
+  "RoW_49": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BA",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-NB",
     "CA-NS",
     "CA-ON",
     "CA-PE",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -1927,15 +2086,20 @@
     "TW",
     "UA"
   ],
-  "RoW_51": [
+  "RoW_50": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BA",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-BC",
     "CA-NT",
     "CA-YK",
     "CH",
     "CL",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "FR",
     "HR",
     "IN-AP",
@@ -1972,10 +2136,15 @@
     "US-SERC",
     "US-WECC"
   ],
-  "RoW_53": [
+  "RoW_52": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BA",
+    "Bajo Nuevo",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR",
@@ -1986,10 +2155,13 @@
     "SI",
     "SK"
   ],
-  "RoW_54": [
+  "RoW_53": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-NB",
     "CA-NS",
@@ -1998,6 +2170,8 @@
     "CA-QC",
     "CH",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "ES",
@@ -2019,10 +2193,13 @@
     "TR",
     "TW"
   ],
-  "RoW_56": [
+  "RoW_55": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-NB",
     "CA-NS",
@@ -2030,6 +2207,8 @@
     "CA-PE",
     "CH",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "ES",
@@ -2058,10 +2237,13 @@
     "TR",
     "TW"
   ],
-  "RoW_57": [
+  "RoW_56": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-NB",
     "CA-NS",
@@ -2069,6 +2251,40 @@
     "CA-PE",
     "CH",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
+    "DE",
+    "DK",
+    "ES",
+    "FI",
+    "FR",
+    "GB",
+    "HU",
+    "IT",
+    "JP",
+    "KR",
+    "LU",
+    "NL",
+    "NO",
+    "PL",
+    "PT",
+    "RU",
+    "SE",
+    "SK",
+    "TR",
+    "TW"
+  ],
+  "RoW_57": [
+    "AQ",
+    "AT",
+    "Ashmore and Cartier Islands",
+    "BE",
+    "BG",
+    "Bajo Nuevo",
+    "CH",
+    "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "ES",
@@ -2091,11 +2307,15 @@
     "TW"
   ],
   "RoW_58": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
-    "CH",
+    "Bajo Nuevo",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "ES",
@@ -2118,36 +2338,15 @@
     "TW"
   ],
   "RoW_59": [
+    "AQ",
     "AT",
-    "BE",
-    "BG",
-    "CZ",
-    "DE",
-    "DK",
-    "ES",
-    "FI",
-    "FR",
-    "GB",
-    "HU",
-    "IT",
-    "JP",
-    "KR",
-    "LU",
-    "NL",
-    "NO",
-    "PL",
-    "PT",
-    "RU",
-    "SE",
-    "SK",
-    "TR",
-    "TW"
-  ],
-  "RoW_60": [
-    "AT",
+    "Ashmore and Cartier Islands",
     "BE",
     "BR",
+    "Bajo Nuevo",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -2167,13 +2366,18 @@
     "TW",
     "UA"
   ],
-  "RoW_61": [
+  "RoW_60": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BE",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-QC",
     "CH",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "DZ",
@@ -2193,10 +2397,15 @@
     "SK",
     "US"
   ],
-  "RoW_63": [
+  "RoW_62": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BE",
+    "Bajo Nuevo",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR",
@@ -2207,17 +2416,27 @@
     "PT",
     "SK"
   ],
-  "RoW_64": [
+  "RoW_63": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BE",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "FR",
     "IT"
   ],
-  "RoW_65": [
+  "RoW_64": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
     "BG",
+    "Bajo Nuevo",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "FI",
@@ -2233,13 +2452,18 @@
     "TW",
     "UA"
   ],
-  "RoW_66": [
+  "RoW_65": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
     "CL",
     "CN-GD",
     "CN-SH",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "FR",
     "GB",
@@ -2262,9 +2486,14 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_68": [
+  "RoW_67": [
+    "AQ",
     "AT",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ID",
     "IS",
@@ -2279,19 +2508,21 @@
     "WECC"
   ],
   "RoW_70": [
-    "AU"
-  ],
-  "RoW_72": [
+    "AQ",
     "AU",
+    "Ashmore and Cartier Islands",
     "BA",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-MB",
     "CA-NS",
     "CA-ON",
     "CA-SK",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "GR",
@@ -2324,11 +2555,16 @@
     "US-TRE",
     "US-WECC"
   ],
-  "RoW_73": [
+  "RoW_71": [
+    "AQ",
     "AU",
+    "Ashmore and Cartier Islands",
     "BA",
     "BG",
+    "Bajo Nuevo",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "GR",
     "HU",
@@ -2340,25 +2576,40 @@
     "SK",
     "TR"
   ],
-  "RoW_74": [
+  "RoW_72": [
+    "AQ",
     "AU",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "TZ",
     "US",
     "ZA"
   ],
-  "RoW_75": [
+  "RoW_73": [
+    "AQ",
     "AU",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
     "Canada without Quebec",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR",
     "US"
   ],
-  "RoW_76": [
+  "RoW_74": [
+    "AQ",
     "AU",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ID",
     "PL",
     "RLA",
@@ -2367,34 +2618,59 @@
     "WEU",
     "ZA"
   ],
-  "RoW_77": [
+  "RoW_75": [
+    "AQ",
     "AU",
-    "Canada without Quebec"
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Canada without Quebec",
+    "Clipperton Island",
+    "Coral Sea Islands"
   ],
-  "RoW_78": [
+  "RoW_76": [
+    "AQ",
     "AU",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_77": [
+    "AQ",
+    "AU",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN"
   ],
-  "RoW_79": [
+  "RoW_78": [
+    "AQ",
     "AU",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RAS",
     "RER",
     "RLA",
     "RNA"
   ],
-  "RoW_80": [
-    "BE"
-  ],
-  "RoW_81": [
+  "RoW_79": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BE",
     "BG",
     "BR",
+    "Bajo Nuevo",
     "CH",
     "CN-GD",
     "CN-JS",
     "CN-SH",
     "CN-ZJ",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -2425,13 +2701,18 @@
     "US-WECC",
     "ZA"
   ],
-  "RoW_83": [
+  "RoW_81": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BE",
+    "Bajo Nuevo",
     "CN-GD",
     "CN-JS",
     "CN-LN",
     "CN-SD",
     "CN-SH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DK",
     "EE",
@@ -2448,18 +2729,36 @@
     "PT",
     "SE"
   ],
-  "RoW_84": [
+  "RoW_82": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BE",
+    "Bajo Nuevo",
     "CR",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "EC",
     "GH",
     "ID",
     "IN"
   ],
-  "RoW_86": [
+  "RoW_83": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "BE",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_85": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BG",
+    "Bajo Nuevo",
     "CH",
     "CL",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "EE",
     "HR",
     "ID",
@@ -2476,14 +2775,16 @@
     "UA",
     "ZA"
   ],
-  "RoW_87": [
-    "BR"
-  ],
-  "RoW_88": [
+  "RoW_86": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
     "CA-QC",
     "CH",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR",
@@ -2493,86 +2794,172 @@
     "TN",
     "US"
   ],
-  "RoW_89": [
+  "RoW_88": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
-    "CH"
-  ],
-  "RoW_91": [
-    "BR",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_89": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "BR",
+    "Bajo Nuevo",
+    "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland",
     "US"
   ],
-  "RoW_92": [
+  "RoW_90": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
     "CO",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "HN",
     "IN"
   ],
-  "RoW_93": [
+  "RoW_91": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_92": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ID",
     "IN",
     "VN"
   ],
-  "RoW_94": [
+  "RoW_93": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ID",
     "MY",
     "TH"
   ],
-  "RoW_95": [
+  "RoW_94": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN"
   ],
-  "RoW_96": [
+  "RoW_95": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RER",
     "US"
   ],
-  "RoW_97": [
+  "RoW_96": [
+    "AQ",
+    "Ashmore and Cartier Islands",
     "BR",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "US"
   ],
-  "RoW_98": [
-    "CA"
-  ],
-  "RoW_99": [
+  "RoW_97": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_98": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CA",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RU"
   ],
-  "RoW_100": [
-    "CA-AB"
-  ],
-  "RoW_101": [
+  "RoW_99": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-AB",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DZ",
     "NL",
     "NO",
     "RU"
   ],
-  "RoW_102": [
+  "RoW_100": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-AB",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_101": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CA-AB",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DZ",
     "RU",
     "US"
   ],
-  "RoW_103": [
+  "RoW_102": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-AB",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "RU",
     "US"
   ],
-  "RoW_104": [
+  "RoW_103": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-AB",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "NG",
     "NL",
     "US"
   ],
-  "RoW_105": [
+  "RoW_104": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-MB",
     "CA-NB",
     "CA-NF",
@@ -2583,6 +2970,8 @@
     "CA-QC",
     "CA-SK",
     "CZ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -2600,22 +2989,57 @@
     "US-TRE",
     "ZA"
   ],
-  "RoW_107": [
+  "RoW_106": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-MB",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "US-NPCC"
   ],
-  "RoW_108": [
+  "RoW_107": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-NB",
     "CA-NS",
     "CA-ON",
-    "CA-QC"
+    "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands"
   ],
-  "RoW_109": [
+  "RoW_108": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-NB",
     "CA-ON",
     "CA-QC",
     "CN-ZJ",
+    "Clipperton Island",
+    "Coral Sea Islands",
+    "IN-GJ",
+    "IN-KA",
+    "IN-MH",
+    "IN-RJ",
+    "IN-TN",
+    "IN-UP",
+    "JP",
+    "KR",
+    "RO",
+    "RU"
+  ],
+  "RoW_109": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CA-NB",
+    "CA-ON",
+    "CN-ZJ",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN-GJ",
     "IN-KA",
     "IN-MH",
@@ -2628,45 +3052,52 @@
     "RU"
   ],
   "RoW_110": [
-    "CA-NB",
-    "CA-ON",
-    "CN-ZJ",
-    "IN-GJ",
-    "IN-KA",
-    "IN-MH",
-    "IN-RJ",
-    "IN-TN",
-    "IN-UP",
-    "JP",
-    "KR",
-    "RO",
-    "RU"
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CA-QC",
+    "CH",
+    "Clipperton Island",
+    "Coral Sea Islands"
   ],
   "RoW_111": [
-    "CA-QC"
-  ],
-  "RoW_112": [
-    "CA-QC",
-    "CH"
-  ],
-  "RoW_113": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland"
   ],
-  "RoW_114": [
+  "RoW_112": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland",
     "US"
   ],
-  "RoW_116": [
-    "CA-QC",
-    "CN"
-  ],
-  "RoW_117": [
+  "RoW_114": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_115": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CA-QC",
+    "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IAI Area 1, Africa",
     "IAI Area 2, without Quebec",
     "IAI Area 4&5, without China",
@@ -2676,102 +3107,205 @@
     "IAI Area, South America",
     "UN-OCEANIA"
   ],
-  "RoW_118": [
+  "RoW_116": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN",
     "RU",
     "UA",
     "US"
   ],
-  "RoW_119": [
+  "RoW_117": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
     "Canada without Quebec",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "FR",
     "US"
   ],
-  "RoW_120": [
+  "RoW_118": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
     "Canada without Quebec",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "FI"
   ],
-  "RoW_121": [
+  "RoW_119": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_120": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE"
   ],
-  "RoW_122": [
+  "RoW_121": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR"
   ],
-  "RoW_123": [
+  "RoW_122": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland"
   ],
-  "RoW_124": [
+  "RoW_123": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "FR"
   ],
-  "RoW_125": [
+  "RoW_124": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IAI Area 2, without Quebec",
     "IAI Area 4&5, without China",
     "IAI Area, EU27 & EFTA",
     "IAI Area, Europe outside EU & EFTA",
     "IAI Area, South America"
   ],
-  "RoW_126": [
+  "RoW_125": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "PE",
     "PG"
   ],
-  "RoW_127": [
+  "RoW_126": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RER"
   ],
-  "RoW_128": [
+  "RoW_127": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-QC",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "US"
   ],
-  "RoW_129": [
+  "RoW_128": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CA-SK",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RER"
   ],
-  "RoW_130": [
-    "CH"
-  ],
-  "RoW_131": [
-    "CH",
-    "CN"
-  ],
-  "RoW_132": [
+  "RoW_129": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_130": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CH",
+    "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "FR",
     "US"
   ],
-  "RoW_133": [
+  "RoW_131": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland"
   ],
-  "RoW_134": [
+  "RoW_132": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland",
     "US"
   ],
-  "RoW_135": [
+  "RoW_133": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "FR",
     "US"
   ],
-  "RoW_136": [
+  "RoW_134": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_135": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FI",
@@ -2791,77 +3325,157 @@
     "US-TRE",
     "US-WECC"
   ],
-  "RoW_137": [
+  "RoW_136": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "FR",
     "RU",
     "US"
   ],
-  "RoW_138": [
+  "RoW_137": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "NL"
   ],
-  "RoW_139": [
+  "RoW_138": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "RER w/o CH+DE"
   ],
-  "RoW_140": [
+  "RoW_139": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "US"
   ],
-  "RoW_141": [
+  "RoW_140": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland"
   ],
-  "RoW_142": [
+  "RoW_141": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland",
     "US"
   ],
-  "RoW_143": [
+  "RoW_142": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CH",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "SE"
   ],
-  "RoW_144": [
+  "RoW_143": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CI",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "GH",
     "ID"
   ],
-  "RoW_145": [
-    "CL"
-  ],
-  "RoW_146": [
+  "RoW_144": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CL",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IT",
     "US"
   ],
+  "RoW_145": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CL",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
+  "RoW_146": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CM",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
   "RoW_147": [
-    "CM"
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "CN",
+    "Clipperton Island",
+    "Coral Sea Islands"
   ],
   "RoW_148": [
-    "CN"
-  ],
-  "RoW_149": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES"
   ],
-  "RoW_150": [
+  "RoW_149": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "IT"
   ],
-  "RoW_151": [
+  "RoW_150": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "FR",
     "PE"
   ],
-  "RoW_152": [
+  "RoW_151": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IAI Area 1, Africa",
     "IAI Area 2, without Quebec",
     "IAI Area 4&5, without China",
@@ -2869,63 +3483,135 @@
     "IAI Area, Europe outside EU & EFTA",
     "UN-OCEANIA"
   ],
-  "RoW_153": [
+  "RoW_152": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IL",
     "NL"
   ],
-  "RoW_154": [
+  "RoW_153": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN"
   ],
-  "RoW_155": [
+  "RoW_154": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN",
     "NL",
     "NZ"
   ],
-  "RoW_156": [
+  "RoW_155": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN",
     "US"
   ],
-  "RoW_157": [
+  "RoW_156": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "KE",
     "LK"
   ],
-  "RoW_158": [
+  "RoW_157": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RER"
   ],
-  "RoW_159": [
+  "RoW_158": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RER",
     "RNA"
   ],
-  "RoW_160": [
+  "RoW_159": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RU"
   ],
-  "RoW_161": [
+  "RoW_160": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CN",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "US"
   ],
-  "RoW_162": [
+  "RoW_161": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CO",
     "CR",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "EC",
     "IN"
   ],
-  "RoW_163": [
+  "RoW_162": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
     "CO",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ID",
     "MY"
   ],
+  "RoW_164": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands"
+  ],
   "RoW_165": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE"
   ],
   "RoW_166": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "DZ",
     "NL",
@@ -2933,43 +3619,88 @@
     "RU"
   ],
   "RoW_167": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "ES",
     "FR"
   ],
   "RoW_168": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "FR",
     "IT"
   ],
   "RoW_169": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "GB",
     "NL",
     "RU"
   ],
   "RoW_171": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "NL",
     "RER w/o DE+NL+NO+RU",
     "RU"
   ],
   "RoW_172": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "SE"
   ],
   "RoW_173": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DE",
     "UCTE without Germany"
   ],
   "RoW_174": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DK"
   ],
   "RoW_176": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "DZ",
     "RME"
   ],
   "RoW_177": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "EE",
     "FI",
     "IE",
@@ -2978,9 +3709,19 @@
     "SE"
   ],
   "RoW_179": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES"
   ],
   "RoW_180": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "FR",
     "HU",
@@ -2988,149 +3729,354 @@
     "UA"
   ],
   "RoW_181": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "FR",
     "IT",
     "TR"
   ],
   "RoW_182": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "IT"
   ],
   "RoW_183": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "IT",
     "MX"
   ],
   "RoW_184": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "MX",
     "TR"
   ],
   "RoW_185": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "US"
   ],
   "RoW_186": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ES",
     "US",
     "ZA"
   ],
   "RoW_187": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "Europe without Switzerland"
   ],
   "RoW_189": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "FR"
   ],
   "RoW_190": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "FR",
     "US"
   ],
   "RoW_191": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "GB"
   ],
   "RoW_192": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "GB",
     "NL",
     "NO"
   ],
   "RoW_193": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "HU",
     "TH",
     "US"
   ],
   "RoW_194": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IAI Area, EU27 & EFTA"
   ],
   "RoW_195": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ID",
     "IN",
     "PH"
   ],
   "RoW_196": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IL"
   ],
   "RoW_197": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN"
   ],
   "RoW_198": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IN",
     "US"
   ],
   "RoW_199": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "IT"
   ],
   "RoW_200": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "JP",
     "RER"
   ],
   "RoW_201": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "MA"
   ],
   "RoW_202": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "MA",
     "US"
   ],
   "RoW_203": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "MG"
   ],
   "RoW_204": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "MX"
   ],
   "RoW_205": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "MY"
   ],
   "RoW_206": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "NL"
   ],
   "RoW_207": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "NO"
   ],
   "RoW_208": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "NORDEL"
   ],
   "RoW_209": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "NZ"
   ],
   "RoW_210": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "PH"
   ],
   "RoW_211": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "PT"
   ],
   "RoW_212": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RAF",
     "RME",
     "RU"
   ],
   "RoW_213": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RER"
   ],
   "RoW_214": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "RNA"
   ],
   "RoW_215": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "SE"
   ],
   "RoW_216": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "SK"
   ],
   "RoW_217": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "TH"
   ],
   "RoW_218": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "TR"
   ],
   "RoW_219": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "UCTE"
   ],
   "RoW_220": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "US"
   ],
   "RoW_221": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "WEU"
   ],
   "RoW_222": [
+    "AQ",
+    "Ashmore and Cartier Islands",
+    "Bajo Nuevo",
+    "Clipperton Island",
+    "Coral Sea Islands",
     "ZA"
   ]
 }

@@ -3,6 +3,27 @@ Rower - a library for creating and using "Rest-of-World" locations
 
 In life cycle assessment, it is common to use a locations called "Rest-of-World", which is defined by the regions in the world not otherwise given. For example, if you defined the production of sugarcane in Brazil in a specific process, then the "Rest-of-World" process would give the production conditions for all sugarcane production outside of Brazil. We can spatially define this, or any other "Rest-of-World", using the `constructive_geometries <https://github.com/cmutel/constructive_geometries>`__ library. This library allows you to consistently define, label, and manage "Rest-of-World" locations for processes in `Brightway <https://brightwaylca.org/>`__ databases. To make our lives a bit easier, we will abbreviate "Rest-of-World" as RoW in this documentation.
 
+Built-in data
+-------------
+
+Rower comes with definitions for more than 200 RoWs, as used in ecoinvent 3.3 and 3.4 (``ecoinvent generic``). It also has the definitions of the RoWs used for each system model in 3.3 and 3.4 - not all RoWs are used for each version/system model. Rower also has activity maps for each system model in 3.3 and 3.4.
+
+RoW definitions and activity maps
+`````````````````````````````````
+
+A RoW is defined by the areas that it doesn't cover; so, for example,
+
+Default exclusions
+``````````````````
+
+By default, Rower will always exclude the following, as they are uninhabited or otherwise irrelevant for industrial production:
+
+* Antarctica
+* Ashmore and Cartier Islands
+* Bajo Nuevo
+* Clipperton Island
+* Coral Sea Islands
+
 Using built-in activity maps
 ----------------------------
 
