@@ -13,7 +13,7 @@ DATAPATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), "data")
 USERPATH = os.path.abspath(appdirs.user_data_dir("rower", "pylca"))
 DEFAULT_EXCLUSIONS = [
     "AQ",                          # Antarctica
-    "Ashmore and Cartier Islands", # Uninhabited
+    "AUS-AC",                      # Uninhabited
     "Bajo Nuevo",                  # Uninhabited
     "Clipperton Island",           # Uninhabited
     "Coral Sea Islands",           # Only a weather station
