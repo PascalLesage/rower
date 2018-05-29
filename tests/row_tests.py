@@ -219,6 +219,25 @@ def test_userdata_redirect(basic, redirect_userdata):
     assert "rower" not in dp
     assert "pytest" in dp
 
+def test_writing_new_datapackage(basic, redirect_userdata):
+    rower = Rower("animals")
+    rower.define_RoWs()
+    rower.label_RoWs()
+    dp = rower.save_data_package("foo", "bar")
+    assert len(Rower("animals").list_existing()) == 8
+    assert "foo" in Rower("animals").list_existing()[-1]
+
+def test_with_ecoinvent_generic():
+    pass
+
+def test_with_ecoinvent_specific():
+    pass
+
+def test_with_user_existing():
+    pass
+
+def test_with_nondefault_backend():
+    pass
 
 # def test_RoW_dict(animals_db):
 #     RoW_dict, RoW_act_mapping = make_RoWs('animals', modify_db_in_place=True)
