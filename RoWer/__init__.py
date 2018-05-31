@@ -6,6 +6,7 @@ import bw2data
 import datetime
 import json
 import os
+import pyprind
 import sys
 
 
@@ -271,7 +272,7 @@ class Rower(object):
 
     def _update_locations_sqlite(self, mapping):
         count = 0
-        for k, v in mapping.items():
+        for k, v in pyprind.prog_bar(mapping.items()):
             activity = bw2data.get_activity((self.db.name, k))
             activity['location'] = v
             activity.save()

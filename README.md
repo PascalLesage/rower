@@ -1,2 +1,3 @@
-# RoWer
-Generate machine-readable information on the RoW geographies in ecoinvent. 
+# Rower
+
+Consistently define, label, and manage "Rest-of-World" locations for processes in [Brightway](https://brightwaylca.org/) databases.

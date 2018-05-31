@@ -18,6 +18,12 @@
       "description": "Dictionary mapping specific Rest-of-Worlds labels to list of excluded locations",
       "format": "json",
       "hash": "dfe4c447823e19a14d4797588760befb"
+    }, {
+      "name": "Rest-of-World topomapping",
+      "path": "rows-topomapping.json.bz2",
+      "description": "Dictionary mapping Rest-of-Worlds to constructive_geometries integer face ids",
+      "format": "json",
+      "hash": "6ab08804facfa898049874710b1f4e0c"
     }
   ]
 }

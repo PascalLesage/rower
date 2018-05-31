@@ -239,6 +239,12 @@ def test_with_user_existing():
 def test_with_nondefault_backend():
     pass
 
+def test_with_default_exclusions():
+    pass
+
+def test_without_default_exclusions():
+    pass
+
 # def test_RoW_dict(animals_db):
 #     RoW_dict, RoW_act_mapping = make_RoWs('animals', modify_db_in_place=True)
 #     mutt_act = get_activity(('animals', 'mutt'))
