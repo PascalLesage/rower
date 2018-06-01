@@ -1,0 +1,29 @@
+{
+  "profile": "data-package",
+  "name": "ecoinvent generic",
+  "description": "Rest-of-World definitions and/or activity mappings for all or a given database",
+  "version": "5",
+  "licenses": [
+    {
+      "name": "ODC-PDDL-1.0",
+      "path": "https://opendefinition.org/licenses/odc-pddl/",
+      "title": "Open Data Commons Public Domain Dedication and Licence 1.0"
+    }
+  ],
+  "created": "2018-05-29T14:18:32.252663",
+  "resources": [
+    {
+      "name": "Rest-of-World definitions",
+      "path": "definitions.json",
+      "description": "Dictionary mapping specific Rest-of-Worlds labels to list of excluded locations",
+      "format": "json",
+      "hash": "dfe4c447823e19a14d4797588760befb"
+    }, {
+      "name": "Rest-of-World topomapping",
+      "path": "rows-topomapping.json.bz2",
+      "description": "Dictionary mapping Rest-of-Worlds to constructive_geometries integer face ids",
+      "format": "json",
+      "hash": "6ab08804facfa898049874710b1f4e0c"
+    }
+  ]
+}

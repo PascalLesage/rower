@@ -1,20 +1,15 @@
 from setuptools import setup
 
 setup(
-    name='RoWer',
+    name='rower',
     version="0",
-    packages=["RoWer"],
-    package_data={'constructive_geometries':
-        [
-            "data/faces.gpkg",
-            "data/faces.json"
-        ]
-    },
+    packages=["rower"],
+    package_data={'rower': ["data/*/*.json"]},
     author="Pascal Lesage",
     author_email="pascal.lesage@polymtl.com",
     #license=""
     url="https://github.com/PascalLesage/RoWer",
-    install_requires=['bw2data'],
+    install_requires=['bw2data', 'appdirs'],
     # long_description=open('README.rst').read(),
     classifiers=[
         'Development Status :: 3 - Alpha',
