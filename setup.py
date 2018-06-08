@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='rower',
-    version="0",
+    version="0.0.dev",
     packages=["rower"],
     package_data={'rower': ["data/*/*.json"]},
     author="Pascal Lesage",
