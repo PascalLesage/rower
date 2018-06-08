@@ -17,6 +17,14 @@ DEFAULT_EXCLUSIONS = [
 
 
 class Rower(object):
+    EI_GENERIC = os.path.join(DATAPATH, "ecoinvent generic")
+    EI_3_3_APOS = os.path.join(DATAPATH, "ecoinvent 3.3 apos")
+    EI_3_4_APOS = os.path.join(DATAPATH, "ecoinvent 3.4 apos")
+    EI_3_3_CUTOFF = os.path.join(DATAPATH, "ecoinvent 3.3 cutoff")
+    EI_3_4_CUTOFF = os.path.join(DATAPATH, "ecoinvent 3.4 cutoff")
+    EI_3_3_CONSEQUENTIAL = os.path.join(DATAPATH, "ecoinvent 3.3 consequential")
+    EI_3_4_CONSEQUENTIAL = os.path.join(DATAPATH, "ecoinvent 3.4 consequential")
+
     def __init__(self, database):
         """Initiate ``Rower`` object to consistently label 'Rest-of-World' locations in LCI databases.
 
@@ -103,14 +111,12 @@ class Rower(object):
         if self.db.backend == 'sqlite':
             data = self._load_groups_sqlite()
         else:
-            data = self._load_groups_other_backend() # data now in format
-                                                     # {(name, product): [(location, code)]
+            # data now in format {(name, product): [(location, code)]
+            data = self._load_groups_other_backend()
 
         counter = count()
-        data = self._reformat_rows(data, default_exclusions=default_exclusions) # data now in format
-                                                                                # {tuple(sorted([location])):
-                                                                                #      [RoW activity code]
-                                                                                # }
+        # data now in format {tuple(sorted([location])): [RoW activity code])
+        data = self._reformat_rows(data, default_exclusions=default_exclusions)
 
         self.user_rows = {}
         self.labelled = {}
