@@ -99,25 +99,33 @@ class Rower(object):
         Resets ``self.user_rows`` and ``self.labelled``.
 
         """
+        assert prefix, "A prefix must be specified"
         if self.db.backend == 'sqlite':
             data = self._load_groups_sqlite()
         else:
-            data = self._load_groups_other_backend()
+            data = self._load_groups_other_backend() # data now in format
+                                                     # {(name, product): [(location, code)]
 
         counter = count()
-        data = self._reformat_rows(data, default_exclusions=default_exclusions)
+        data = self._reformat_rows(data, default_exclusions=default_exclusions) # data now in format
+                                                                                # {tuple(sorted([location])):
+                                                                                #      [RoW activity code]
+                                                                                # }
+
         self.user_rows = {}
         self.labelled = {}
 
         if not data:
             return self.labelled, self.user_rows
 
-        for k in sorted(data):
-            v = data[k]
-            if k in self.existing:
-                self.labelled[self.existing[k]] = v
+        for k in sorted(data):      # For tuples of excluded locations
+            v = data[k]             # v = list of codes for activities with this RoW definition
+            if k in self.existing:  # If there is already a RoW id for this RoW definition
+                self.labelled[self.existing[k]] = v # The list of activities for the existing RoW
+                                                    # definition is the one returned above
+                                                    # for self.database
             else:
-                key = "{}_{}".format(prefix, next(counter))
+                key = "{}_{}".format(prefix, next(counter)) # Create a new RoW key.
                 self.labelled[key] = v
                 self.user_rows[key] = k
 
@@ -145,6 +153,7 @@ class Rower(object):
     def _load_groups_sqlite(self):
         """Return dictionary of ``{(name, product): [(location, code)]`` from SQLite3 database"""
         data = defaultdict(list)
+        # AD is the ActivityDataset db table (Model in Peewee) imported from bw2data.backends.peewee
         qs = list(AD.select(AD.name, AD.product, AD.location, AD.code).where(
             AD.database == self.db.name).dicts())
         for obj in qs:
