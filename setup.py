@@ -8,7 +8,7 @@ setup(
     author="Pascal Lesage",
     author_email="pascal.lesage@polymtl.com",
     #license=""
-    url="https://github.com/PascalLesage/RoWer",
+    url="https://github.com/PascalLesage/rower",
     install_requires=['bw2data', 'appdirs'],
     # long_description=open('README.rst').read(),
     classifiers=[
