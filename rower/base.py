@@ -1,5 +1,6 @@
 from . import DATAPATH, USERPATH, RowerDatapackage
 from bw2data.backends.peewee import ActivityDataset as AD
+from bw2data import databases
 from collections import defaultdict
 from itertools import count
 import bw2data
@@ -183,11 +184,22 @@ class Rower(object):
 
     def _update_locations_sqlite(self, mapping):
         count = 0
-        for k, v in pyprind.prog_bar(mapping.items()):
-            activity = bw2data.get_activity((self.db.name, k))
-            activity['location'] = v
-            activity.save()
-            count += 1
+
+        searchable = self.db.metadata.get('searchable')
+        if searchable:
+            self.db.make_unsearchable()
+
+        for act in pyprind.prog_bar(self.db):
+            try:
+                act['location'] = mapping[act['code']]
+                act.save()
+                count += 1
+            except KeyError:
+                continue
+
+        if searchable:
+            self.db.make_unsearchable()
+
         return count
 
     def _update_locations_other(self, mapping):
@@ -199,6 +211,8 @@ class Rower(object):
                 count += 1
         if count:
             self.db.write(data)
+        self.db.metadata['rowed'] = True
+        databases.flush()
         return count
 
     def _get_saved(self, dirname):
