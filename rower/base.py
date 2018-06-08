@@ -1,5 +1,6 @@
 from . import DATAPATH, USERPATH, RowerDatapackage
 from bw2data.backends.peewee import ActivityDataset as AD
+from bw2data import databases
 from collections import defaultdict
 from itertools import count
 import bw2data
@@ -204,6 +205,8 @@ class Rower(object):
                 count += 1
         if count:
             self.db.write(data)
+        self.db.metadata['rowed'] = True
+        databases.flush()
         return count
 
     def _get_saved(self, dirname):
