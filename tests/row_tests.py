@@ -228,8 +228,54 @@ def test_writing_new_datapackage(basic, redirect_userdata):
     assert len(Rower("animals").list_existing()) == 8
     assert "foo" in Rower("animals").list_existing()[-1]
 
+def test_builtin_paths():
+    labels = [
+        "EI_GENERIC",
+        "EI_3_3_APOS",
+        "EI_3_4_APOS",
+        "EI_3_3_CUTOFF",
+        "EI_3_4_CUTOFF",
+        "EI_3_3_CONSEQUENTIAL",
+        "EI_3_4_CONSEQUENTIAL",
+    ]
+    assert len(set(labels)) == len(labels)
+    for label in labels:
+        assert os.path.isdir(getattr(Rower, label))
+    assert len({getattr(Rower, label) for label in labels}) == len(labels)
+
+@bw2test
 def test_with_ecoinvent_generic():
-    pass
+    assert not len(Database('animals'))
+    animal_data = {
+        ('animals', 'dogo'): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'BR',
+        },
+        ('animals', 'st bernhard'): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'CH',
+        },
+        ('animals', 'mutt'): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'RoW',
+        },
+    }
+    db = Database('animals')
+    db.write(animal_data)
+
+    r = Rower('animals')
+    r.load_existing(r.EI_GENERIC)
+    r.label_RoWs()
+    assert get_activity(('animals', 'mutt')) == "RoW_88"
 
 def test_with_ecoinvent_specific():
     pass
