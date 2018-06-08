@@ -39,6 +39,8 @@ class RowerDatapackage(object):
             assert (bw2data.filesystem.md5(
                 os.path.join(self.path, resource["path"])
             ) == resource["hash"]), "Data integrity failure"
+            if not resource["format"] == "json":
+                continue
             data[resource["name"]] = self._read_json(
                 os.path.join(self.path, resource["path"])
             )
