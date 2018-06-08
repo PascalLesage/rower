@@ -9,6 +9,7 @@ import json
 
 @pytest.fixture
 def redirect_userdata(monkeypatch, tmpdir):
+    monkeypatch.setattr(rower.base, 'USERPATH', tmpdir)
     monkeypatch.setattr(rower, 'USERPATH', tmpdir)
 
 
