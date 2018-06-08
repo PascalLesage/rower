@@ -22,7 +22,7 @@
       "name": "Rest-of-World topomapping",
       "path": "rows-topomapping.json.bz2",
       "description": "Dictionary mapping Rest-of-Worlds to constructive_geometries integer face ids",
-      "format": "json",
+      "format": "application/octet-stream",
       "hash": "6ab08804facfa898049874710b1f4e0c"
     }
   ]
