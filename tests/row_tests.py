@@ -200,7 +200,7 @@ def basic():
     return db
 
 
-def test_existing_ecoinvent_present(basic):
+def test_existing_ecoinvent_present(basic, redirect_userdata):
     assert len(Rower("animals").list_existing()) == 7
 
 def test_locations_changed_as_expected(basic):
