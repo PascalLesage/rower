@@ -6,7 +6,7 @@ __all__ = [
     "USERPATH"
 ]
 
-__version__ = (0, 0, "dev")
+__version__ = (0, 1)
 
 import appdirs
 import os
@@ -18,4 +18,4 @@ if not os.path.isdir(USERPATH):
     os.makedirs(USERPATH)
 
 from .data_package import RowerDatapackage
-from .base import Rower
+from .base import Rower, DEFAULT_EXCLUSIONS
