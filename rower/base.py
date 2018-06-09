@@ -60,7 +60,7 @@ class Rower(object):
         return [os.path.join(DATAPATH, o) for o in os.listdir(DATAPATH)
                 if os.path.isdir(os.path.join(DATAPATH,o))] + \
                [os.path.join(USERPATH, o) for o in os.listdir(USERPATH)
-                if os.path.isdir(os.path.join(DATAPATH,o))]
+                if os.path.isdir(os.path.join(USERPATH,o))]
 
     def load_existing(self, dirname):
         """Load a data package and populate ``self.existing`` and/or ``self.labelled``.
@@ -116,25 +116,33 @@ class Rower(object):
             data = self._load_groups_other_backend()
 
         counter = count()
-        # data now in format {tuple(sorted([location])): [RoW activity code])
-        data = self._reformat_rows(data, default_exclusions=default_exclusions)
+        # Group by list of excluded locations into format:
+        # {tuple(sorted([location])): [RoW activity code]}
+        grouped_data = self._reformat_rows(data, default_exclusions=default_exclusions)
 
         self.user_rows = {}
         self.labelled = {}
 
-        if not data:
+        if not grouped_data:
             return self.labelled, self.user_rows
 
-        for k in sorted(data):      # For tuples of excluded locations
-            v = data[k]             # v = list of codes for activities with this RoW definition
-            if k in self.existing:  # If there is already a RoW id for this RoW definition
-                self.labelled[self.existing[k]] = v # The list of activities for the existing RoW
-                                                    # definition is the one returned above
-                                                    # for self.database
-            else:
-                key = "{}_{}".format(prefix, next(counter)) # Create a new RoW key.
-                self.labelled[key] = v
-                self.user_rows[key] = k
+        # From row_x: [locations] to (locations): row_x
+        existing_reversed = {tuple(v): k for k, v in self.existing.items()}
+
+        # For tuples of excluded locations
+        for excluded in sorted(grouped_data):
+            # v = list of codes for activities with this RoW definition
+            list_of_codes = grouped_data[excluded]
+            # If there is already a RoW id for this RoW definition
+            try:
+                # The list of activities for the existing RoW
+                # definition is the one returned above for self.database
+                self.labelled[existing_reversed[excluded]] = list_of_codes
+            except KeyError:
+                # Create a new RoW key.
+                key = "{}_{}".format(prefix, next(counter))
+                self.labelled[key] = list_of_codes
+                self.user_rows[key] = excluded
 
         return self.labelled, self.user_rows
 
@@ -174,11 +182,19 @@ class Rower(object):
 
         Adds default exclusions if ``default_exclusions``."""
         result = defaultdict(list)
+
+        if default_exclusions is True:
+            exclusions = DEFAULT_EXCLUSIONS
+        elif not default_exclusions:
+            exclusions = []
+        else:
+            exclusions = list(default_exclusions)
+
         for lst in data.values():
             if 'RoW' not in [x[0] for x in lst]:
                 continue
             result[tuple(sorted([x[0] for x in lst if x[0] != "RoW"] +
-                                DEFAULT_EXCLUSIONS if default_exclusions else []))
+                                exclusions))
                  ].extend([x[1] for x in lst if x[0] == 'RoW'])
         return result
 
