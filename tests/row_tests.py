@@ -1,14 +1,14 @@
-from rower import Rower, RowerDatapackage
-import rower
 from bw2data import Database, projects, get_activity
 from bw2data.tests import bw2test
+import json
 import os
 import pytest
-import json
+import rower
 
 
 @pytest.fixture
 def redirect_userdata(monkeypatch, tmpdir):
+    monkeypatch.setattr(rower.base, 'USERPATH', tmpdir)
     monkeypatch.setattr(rower, 'USERPATH', tmpdir)
 
 
@@ -199,39 +199,121 @@ def basic():
     return db
 
 
-def test_existing_ecoinvent_present(basic):
-    assert len(Rower("animals").list_existing()) == 7
+def test_existing_ecoinvent_present(basic, redirect_userdata):
+    assert len(rower.Rower("animals").list_existing()) == 7
 
 def test_locations_changed_as_expected(basic):
-    rower = Rower("animals")
-    rower.define_RoWs()
-    rower.label_RoWs()
+    rwr = rower.Rower("animals")
+    rwr.define_RoWs()
+    rwr.label_RoWs()
     assert get_activity(('animals', 'mutt pup'))['location'] == 'RoW_user_0'
     assert get_activity(('animals', 'mutt'))['location'] == 'RoW_user_0'
     assert get_activity(('animals', 'moggy'))['location'] == 'RoW_user_1'
 
 def test_userdata_redirect(basic, redirect_userdata):
-    rower = Rower("animals")
-    rower.define_RoWs()
-    rower.label_RoWs()
-    dp = rower.save_data_package("foo", "bar")
-    print(dp)
+    rwr = rower.Rower("animals")
+    rwr.define_RoWs()
+    rwr.label_RoWs()
+    dp = rwr.save_data_package("foo", "bar")
     assert "rower" not in dp
     assert "pytest" in dp
 
 def test_writing_new_datapackage(basic, redirect_userdata):
-    rower = Rower("animals")
-    rower.define_RoWs()
-    rower.label_RoWs()
-    dp = rower.save_data_package("foo", "bar")
-    assert len(Rower("animals").list_existing()) == 8
-    assert "foo" in Rower("animals").list_existing()[-1]
+    rwr = rower.Rower("animals")
+    rwr.define_RoWs()
+    rwr.label_RoWs()
+    dp = rwr.save_data_package("foo", "bar")
+    assert len(rower.Rower("animals").list_existing()) == 8
+    assert "foo" in rower.Rower("animals").list_existing()[-1]
 
+def test_builtin_paths():
+    labels = [
+        "EI_GENERIC",
+        "EI_3_3_APOS",
+        "EI_3_4_APOS",
+        "EI_3_3_CUTOFF",
+        "EI_3_4_CUTOFF",
+        "EI_3_3_CONSEQUENTIAL",
+        "EI_3_4_CONSEQUENTIAL",
+    ]
+    assert len(set(labels)) == len(labels)
+    for label in labels:
+        assert os.path.isdir(getattr(rower.Rower, label))
+    assert len({getattr(rower.Rower, label) for label in labels}) == len(labels)
+
+@bw2test
 def test_with_ecoinvent_generic():
-    pass
+    assert not len(Database('animals'))
+    animal_data = {
+        ('animals', 'dogo'): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'BR',
+        },
+        ('animals', 'st bernhard'): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'CH',
+        },
+        ('animals', 'mutt'): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'RoW',
+        },
+    }
+    db = Database('animals')
+    db.write(animal_data)
 
-def test_with_ecoinvent_specific():
-    pass
+    rwr = rower.Rower('animals')
+    rwr.load_existing(rwr.EI_GENERIC)
+    rwr.define_RoWs()
+    rwr.label_RoWs()
+    assert get_activity(('animals', 'mutt'))['location'] == "RoW_88"
+
+@bw2test
+def test_with_ecoinvent_specific_full():
+    assert not len(Database('animals'))
+    animal_data = {
+        ('animals', "6ccf7e69afcf1b74de5b52ae28bbc1c2"): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'RoW',
+        },
+    }
+    db = Database('animals')
+    db.write(animal_data)
+
+    rwr = rower.Rower('animals')
+    rwr.load_existing(rwr.EI_3_4_CONSEQUENTIAL)
+    rwr.label_RoWs()
+    assert get_activity(('animals', "6ccf7e69afcf1b74de5b52ae28bbc1c2"))['location'] == "RoW_64"
+
+@bw2test
+def test_with_ecoinvent_specific_shortcut():
+    assert not len(Database('animals'))
+    animal_data = {
+        ('animals', "6ccf7e69afcf1b74de5b52ae28bbc1c2"): {
+            'name': 'dogs',
+            'reference product': 'dog',
+            'exchanges': [],
+            'unit': 'kilogram',
+            'location': 'RoW',
+        },
+    }
+    db = Database('animals')
+    db.write(animal_data)
+
+    rwr = rower.Rower('animals')
+    rwr.apply_existing_activity_map(rwr.EI_3_4_CONSEQUENTIAL)
+    assert get_activity(('animals', "6ccf7e69afcf1b74de5b52ae28bbc1c2"))['location'] == "RoW_64"
 
 def test_with_user_existing():
     pass
@@ -239,83 +321,31 @@ def test_with_user_existing():
 def test_with_nondefault_backend():
     pass
 
-def test_with_default_exclusions():
-    pass
+def test_with_default_exclusions(basic, redirect_userdata):
+    rwr = rower.Rower("animals")
+    rwr.define_RoWs()
+    expected = {
+        'RoW_user_0': ('AQ', 'AUS-AC', 'Bajo Nuevo', 'CN',
+                       'Clipperton Island', 'Coral Sea Islands', 'DE'),
+        'RoW_user_1': ('AQ', 'AUS-AC', 'Bajo Nuevo', 'Clipperton Island',
+                        'Coral Sea Islands', 'IR'),
+    }
+    assert rwr.user_rows == expected
 
-def test_without_default_exclusions():
-    pass
+def test_without_default_exclusions(basic, redirect_userdata):
+    rwr = rower.Rower("animals")
+    rwr.define_RoWs(default_exclusions=False)
+    expected = {
+        'RoW_user_0': ('CN', 'DE'),
+        'RoW_user_1': ('IR',),
+    }
+    assert rwr.user_rows == expected
 
-# def test_RoW_dict(animals_db):
-#     RoW_dict, RoW_act_mapping = make_RoWs('animals', modify_db_in_place=True)
-#     mutt_act = get_activity(('animals', 'mutt'))
-#     mutt_pup_act = get_activity(('animals', 'mutt pup'))
-#     moggy_act = get_activity(('animals', 'moggy'))
-#     mutt_location = mutt_act['location']
-#     mutt_pup_location = mutt_pup_act['location']
-#     moggy_location = moggy_act['location']
-
-#     # Locations of RoW activities begin with "RoW"
-#     assert mutt_location[0:3] == 'RoW'
-#     assert mutt_pup_location[0:3] == 'RoW'
-#     assert moggy_location[0:3] == 'RoW'
-#     # Locations of RoW activities are of length 5
-#     assert len(mutt_location) == 5
-#     assert len(mutt_pup_location) == 5
-#     assert len(moggy_location) == 5
-#     # Locations of RoW acts are in the RoW dict
-#     assert mutt_location in RoW_dict.keys()
-#     assert mutt_pup_location in RoW_dict.keys()
-#     assert moggy_location in RoW_dict.keys()
-#     # The RoW dict only has those three
-#     print(RoW_dict, RoW_act_mapping)
-#     assert len(RoW_dict) == 3
-#     # Check the contents of the RoW_dict
-#     assert sorted(RoW_dict[mutt_location]) == ['CN', 'DE']
-#     assert sorted(RoW_dict[mutt_pup_location]) == ['CN', 'DE']
-#     assert RoW_dict[moggy_location] == ['IR']
-#     # Check that the values of the RoW_act_mapping are the keys of the RoW_dict
-#     assert sorted(list(RoW_dict.keys())) == sorted(list(RoW_act_mapping.values()))
-#     # Specifically:
-#     assert RoW_act_mapping[mutt_act.key] == mutt_location
-#     assert RoW_act_mapping[mutt_pup_act.key] == mutt_pup_location
-#     assert RoW_act_mapping[moggy_act.key] == moggy_location
-
-# def test_written_info_no_new_name(animals_db, tmpdir_factory):
-#     RoW_dict, RoW_act_mapping = make_RoWs('animals', modify_db_in_place=False)
-#     temp_dir = tmpdir_factory.mktemp('temp')
-#     write_RoW_info(RoW_dict, RoW_act_mapping, root_dirpath=temp_dir, overwrite=False, new_name=None)
-#     dir = os.path.join(temp_dir, 'animals')
-#     package = json.load(open(os.path.join(dir, 'datapackage.json')))
-#     row_def_resource = [resource for resource in package['resources']
-#                         if list(resource.keys())[0]=='RoW definitions'][0]
-#     loaded_RoW_defs = json.load(open(row_def_resource['RoW definitions']['path'], 'r'))
-#     for k in loaded_RoW_defs.keys():
-#         assert RoW_dict[k] == loaded_RoW_defs[k]
-#     mapping_resource = [resource for resource in package['resources']
-#                         if list(resource.keys())[0]=='Mapping'][0]
-#     loaded_mapping_resources = json.load(open(mapping_resource['Mapping']['path'], 'r'))
-#     for k in loaded_mapping_resources.keys():
-#         assert loaded_mapping_resources[k] == RoW_act_mapping[('animals', k)]
-#     # Check that error is thrown if attempt to overwrite files
-#     with pytest.raises(ValueError):
-#         write_RoW_info(RoW_dict, RoW_act_mapping, root_dirpath=temp_dir, overwrite=False)
-
-# def test_written_info_new_name(animals_db, tmpdir_factory):
-#     RoW_dict, RoW_act_mapping = make_RoWs('animals', modify_db_in_place=False)
-#     temp_dir = tmpdir_factory.mktemp('temp')
-#     write_RoW_info(RoW_dict, RoW_act_mapping, root_dirpath=temp_dir, overwrite=False, new_name="furry things")
-#     dir = os.path.join(temp_dir, 'furry things')
-#     package = json.load(open(os.path.join(dir, 'datapackage.json')))
-#     row_def_resource = [resource for resource in package['resources']
-#                         if list(resource.keys())[0]=='RoW definitions'][0]
-#     loaded_RoW_defs = json.load(open(row_def_resource['RoW definitions']['path'], 'r'))
-#     for k in loaded_RoW_defs.keys():
-#         assert RoW_dict[k] == loaded_RoW_defs[k]
-#     mapping_resource = [resource for resource in package['resources']
-#                         if list(resource.keys())[0]=='Mapping'][0]
-#     loaded_mapping_resources = json.load(open(mapping_resource['Mapping']['path'], 'r'))
-#     for k in loaded_mapping_resources.keys():
-#         assert loaded_mapping_resources[k] == RoW_act_mapping[('animals', k)]
-#     # Check that error is thrown if attempt to overwrite files
-#     with pytest.raises(ValueError):
-#         write_RoW_info(RoW_dict, RoW_act_mapping, root_dirpath=temp_dir, overwrite=False, new_name="furry things")
+def test_custom_exclusions(basic, redirect_userdata):
+    rwr = rower.Rower("animals")
+    rwr.define_RoWs(default_exclusions=('foo', 'bar'))
+    expected = {
+        'RoW_user_0': ('CN', 'DE', 'bar', 'foo'),
+        'RoW_user_1': ('IR', 'bar', 'foo'),
+    }
+    assert rwr.user_rows == expected
