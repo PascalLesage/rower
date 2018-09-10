@@ -25,6 +25,9 @@ class Rower(object):
     EI_3_4_CUTOFF = os.path.join(DATAPATH, "ecoinvent 3.4 cutoff")
     EI_3_3_CONSEQUENTIAL = os.path.join(DATAPATH, "ecoinvent 3.3 consequential")
     EI_3_4_CONSEQUENTIAL = os.path.join(DATAPATH, "ecoinvent 3.4 consequential")
+    EI_3_5_APOS = os.path.join(DATAPATH, "ecoinvent 3.5 apos")
+    EI_3_5_CUTOFF = os.path.join(DATAPATH, "ecoinvent 3.5 cutoff")
+    EI_3_5_CONSEQUENTIAL = os.path.join(DATAPATH, "ecoinvent 3.5 consequential")
 
     def __init__(self, database):
         """Initiate ``Rower`` object to consistently label 'Rest-of-World' locations in LCI databases.
